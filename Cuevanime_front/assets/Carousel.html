@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="./tailwind.css" />
+<!-- Carousel.html -->
+<div class="relative overflow-hidden bg-gray-300 z-0">
+  <!-- Contenedor de diapositivas -->
+  <div class="flex transition-transform duration-300 ease-in-out">
+    <!-- Diapositiva 1 -->
+    <a
+      href="https://example.com/slide1"
+      target="_blank"
+      class="w-full flex-shrink-0"
+    >
+      <img
+        src="https://static.crunchyroll.com/fms/landscape_large/1920x1080/94/png/f059202d-3d1d-4db4-aa0a-4531473091c0.webp"
+        alt="Slide 1"
+        class="w-full h-96 object-cover"
+      />
+    </a>
+    <!-- Diapositiva 2 -->
+    <a
+      href="https://example.com/slide2"
+      target="_blank"
+      class="w-full flex-shrink-0"
+    >
+      <img
+        src="https://static.crunchyroll.com/fms/landscape_large/1920x1080/94/png/659a796d-6077-4564-bd89-843a70bb62e5.webp"
+        alt="Slide 2"
+        class="w-full h-96 object-cover"
+      />
+    </a>
+    <!-- Diapositiva 3 -->
+    <a
+      href="https://example.com/slide3"
+      target="_blank"
+      class="w-full flex-shrink-0"
+    >
+      <img
+        src="https://static.crunchyroll.com/fms/landscape_large/1920x1080/94/png/2a0393cd-5f74-4114-9db4-20f291326337.webp"
+        alt="Slide 3"
+        class="w-full h-96 object-cover"
+      />
+    </a>
+  </div>
+  <!-- Botones de navegación -->
+  <div
+    class="absolute top-1/2 left-0 transform -translate-y-1/2 flex justify-between w-full"
+  >
+    <button
+      onclick="prevSlide()"
+      class="text-white p-2 bg-black opacity-50 hover:opacity-75"
+    >
+      &#8249; Anterior
+    </button>
+    <button
+      onclick="nextSlide()"
+      class="text-white p-2 bg-black opacity-50 hover:opacity-75"
+    >
+      Siguiente &#8250;
+    </button>
+  </div>
+</div>

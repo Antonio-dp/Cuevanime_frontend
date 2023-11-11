@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="./tailwind.css" />
+<nav class="bg-black p-4 relative z-10">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="flex items-center">
+      <!-- Logo -->
+      <a href="#" class="text-white text-lg font-semibold mr-4">
+        <!-- Reemplaza 'ruta-del-logo.png' con la ruta a tu archivo de imagen -->
+        <img
+          src="https://cdn.discordapp.com/attachments/765591939109879818/1170903076299874406/WhatsApp_Image_2023-11-05_at_12.08.23_AM__1_-removebg-preview.png?ex=655abb77&is=65484677&hm=e6430a66d1c8017ee0f8f5a46203c609b160db3781851ba4560c33bba6f2300f&"
+          alt="Logo"
+          class="w-10 h-10"
+        />
+      </a>
+
+      <!-- Menú de categorías (visible en pantallas grandes) -->
+      <div class="hidden md:flex space-x-4">
+        <!-- Categoría con menú desplegable -->
+        <div class="relative group">
+          <a
+            href="#"
+            class="text-white md:hover:text-gray-300 md:focus:text-gray-300 focus:outline-none"
+            id="generosDropdown"
+          >
+            Explorar
+            <img src="../icons/abajo.png" alt="Logo" class="w-2 h-2" />
+          </a>
+          <!-- Menú desplegable dentro de la categoría "Géneros" -->
+          <div
+            id="generosMenu"
+            class="hidden md:absolute bg-black text-white p-2 space-y-2"
+          >
+            <a href="#" class="block">Acción</a>
+            <a href="#" class="block">Aventura</a>
+            <a href="#" class="block">Comedia</a>
+            <!-- Agrega más opciones según sea necesario -->
+          </div>
+        </div>
+        <a href="#" class="text-white">Películas</a>
+      </div>
+
+      <!-- Menú desplegable (visible en pantallas pequeñas) -->
+      <div
+        id="menuDropdown"
+        class="lg:hidden hidden bg-black text-white p-4 flex-col items-end"
+      >
+        <a href="#" class="block">Catalogo</a>
+        <a href="#" class="block">Películas</a>
+      </div>
+      <!-- Icono de hamburguesa para el menú responsivo (visible en pantallas pequeñas) -->
+      <div class="md:hidden">
+        <button id="menuToggle" class="text-white focus:outline-none">☰</button>
+      </div>
+    </div>
+
+    <!-- Icono de lupa para abrir el campo de búsqueda -->
+    <div class="ml-auto mr-4">
+      <button id="searchToggle" class="text-white focus:outline-none">
+        <img src="../icons/buscar.png" alt="buscar" class="w-4 h-4" />
+      </button>
+    </div>
+
+    <!-- Campo de búsqueda (visible en pantallas pequeñas) -->
+    <div id="searchInput" class="hidden mr-3">
+      <input
+        type="text"
+        placeholder="Buscar..."
+        class="p-2 border border-gray-500 rounded"
+      />
+    </div>
+
+    <!-- Icono de usuario con menú desplegable -->
+    <div class="relative group mr-10">
+      <button id="userToggle" class="text-white focus:outline-none">
+        <img src="../icons/padorusage.jpg" alt="Usuario" class="w-6 h-6" />
+      </button>
+      <!-- Menú desplegable para opciones de usuario -->
+      <div
+        id="userMenu"
+        class="hidden absolute bg-black text-white p-2 space-y-2"
+      >
+        <a href="#" class="block">Perfil</a>
+        <a href="#" class="block">Configuración</a>
+        <a href="#" class="block">Cerrar sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>

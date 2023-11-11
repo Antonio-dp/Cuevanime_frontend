@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./tailwind.css" />
+    <title>Reproductor de Video</title>
+  </head>
+  <body class="bg-gray-100">
+    <div class="w-128 h-96 lg:w-720 lg:h-540 mx-auto relative">
+      <!-- Cambia el ID del video de YouTube según tus necesidades -->
+      <iframe
+        class="w-full h-full"
+        title="Reproductor de Video"
+        frameborder="0"
+        allowfullscreen="true"
+        style="border: 0"
+        src="https://www.yourupload.com/embed/EgDcu0DcDxqg"
+      ></iframe>
+      <div
+        class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4"
+      >
+        <button
+          class="bg-blue-500 text-white px-4 py-2 rounded"
+          onclick="cambiarServidor('servidor1')"
+        >
+          Servidor 1
+        </button>
+        <button
+          class="bg-green-500 text-white px-4 py-2 rounded"
+          onclick="cambiarServidor('servidor2')"
+        >
+          Servidor 2
+        </button>
+      </div>
+    </div>
+    <script>
+      function cambiarServidor(src) {
+        const videoIframe = document.getElementById("videoIframe");
+        videoIframe.src = src;
+      }
+    </script>
+  </body>
+</html>

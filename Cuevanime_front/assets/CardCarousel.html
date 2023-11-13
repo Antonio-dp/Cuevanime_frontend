@@ -1,25 +1,95 @@
-<!-- card-carousel.html -->
-<template id="cardCarouselTemplate">
-  <style>
-    /* Estilos específicos del componente */
-    /* Puedes agregar estilos personalizados aquí */
-  </style>
-  <div id="cardContainer" class="flex space-x-4 p-4 overflow-hidden">
-    <!-- Cards aquí -->
+<link rel="stylesheet" href="./tailwind.css" />
+<link rel="stylesheet" href="../components/Card-Carousel/cardCarousel.css" />
+<div id="cardCarousel" class="flex space-x-4 overflow-x-auto relative">
+  <!-- Cards aquí -->
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
   </div>
-  <!-- Botones de navegación -->
-  <div class="flex justify-between mt-4">
-    <button
-      id="prevButton"
-      class="text-white p-2 bg-gray-800 opacity-50 hover:opacity-75"
-    >
-      Anterior
-    </button>
-    <button
-      id="nextButton"
-      class="text-white p-2 bg-gray-800 opacity-50 hover:opacity-75"
-    >
-      Siguiente
-    </button>
+  <!-- Agrega más cards según sea necesario -->
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
   </div>
-</template>
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
+  </div>
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
+  </div>
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
+  </div>
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
+  </div>
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
+  </div>
+  <div class="card bg-brand rounded-lg overflow-hidden">
+    <img
+      src="https://imgs.search.brave.com/7OogJERWMhLvSwXQKkPSaM_QTd0xkQIwjYTFalcL0OA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzIzLzc5/LzQ4LzIzNzk0OGE2/ZDUwODgyNzA1MDFj/MjkxOGEzYjI3ZDEx/LmpwZw"
+      alt="Anime 1"
+      class="w-full h-40 object-cover"
+    />
+    <div class="p-4 text-white">
+      <h3 class="text-lg font-semibold">Anime 1</h3>
+      <p class="text-gray-400">Descripción del anime 1.</p>
+    </div>
+  </div>
+  <!-- Repite esto para las otras tarjetas -->
+</div>

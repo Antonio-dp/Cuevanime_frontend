@@ -1,57 +1,65 @@
-// card-carousel.js
 export class CardCarousel extends HTMLElement {
   constructor() {
     super();
+    //const shadow = this.attachShadow({ mode: 'open' })
+    //shadow.appendChild(template.content.cloneNode(true))
   }
-
   async #render(shadow) {
-    try {
-      const response = await fetch("./../assets/CardCarousel.html");
-      const html = await response.text();
-      // Crear un nuevo div en el sombreado
-      const container = document.createElement("div");
-      container.innerHTML = html;
-      shadow.appendChild(container);
-
-      this.#addCarouselBehavior(shadow);
-    } catch (error) {
-      console.error("Error loading HTML:", error);
-    }
+    fetch("./../assets/CardCarousel.html")
+      .then((response) => response.text())
+      .then((html) => {
+        shadow.innerHTML += html;
+        this.#addCardsBehavior(shadow);
+      })
+      .catch((error) => console.error("error loading HTML: " + error));
   }
-
-  #addCarouselBehavior(shadow) {
-    const cardContainer = shadow.getElementById("cardContainer");
-    const prevButton = shadow.getElementById("prevButton");
-    const nextButton = shadow.getElementById("nextButton");
-
+  #addCardsBehavior(shadow) {
+    const cardCarousel = shadow.getElementById("cardCarousel");
     let currentIndex = 0;
 
     function showCard(index) {
-      const transformValue = `translateX(${-index * 100}%)`;
-      cardContainer.style.transform = transformValue;
+      const transformValue = `translateX(${-index * 20}rem)`;
+      cardCarousel.style.transform = transformValue;
     }
 
-    nextButton.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % cardContainer.children.length;
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % cardCarousel.children.length;
       showCard(currentIndex);
-    });
+    }
 
-    prevButton.addEventListener("click", () => {
+    function prevCard() {
       currentIndex =
-        (currentIndex - 1 + cardContainer.children.length) %
-        cardContainer.children.length;
+        (currentIndex - 1 + cardCarousel.children.length) %
+        cardCarousel.children.length;
       showCard(currentIndex);
+    }
+
+    // Agrega lógica para mostrar/ocultar los botones según sea necesario
+    function updateButtons() {
+      const prevButton = document.getElementById("prevButton");
+      const nextButton = document.getElementById("nextButton");
+      prevButton.disabled = currentIndex === 0;
+      nextButton.disabled = currentIndex === cardCarousel.children.length - 1;
+    }
+
+    document.getElementById("prevButton").addEventListener("click", () => {
+      prevCard();
+      updateButtons();
     });
 
-    // Agrega lógica adicional según sea necesario
-  }
+    document.getElementById("nextButton").addEventListener("click", () => {
+      nextCard();
+      updateButtons();
+    });
 
+    // Inicializa el carrusel
+    showCard(currentIndex);
+    updateButtons();
+  }
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
-    shadow.addEventListener("load", () => {
-      this.#render(shadow);
-    });
+    this.#render(shadow);
   }
 }
 
-customElements.define("card-carousel", CardCarousel);
+customElements.define("card-carousel-comp", CardCarousel);

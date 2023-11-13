@@ -1,8 +1,30 @@
-.glide__arrow {
-    position: absolute;
-    display: block;
-    top: 50%;
-    z-index: 2;
-    opacity: 1;
-    transform: translateY(-50%);
-}
+.card {
+    min-width: 18rem;
+    margin-bottom: 20px;
+  }
+
+  .card img {
+    height: 12rem;
+    object-fit: cover;
+  }
+
+  #cardCarousel {
+    position: relative;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  #cardCarousel::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  #cardCarousel::-webkit-scrollbar-thumb {
+    background-color: #4a5568;
+    border-radius: 6px;
+    border: 3px solid #2d3748;
+  }
+
+  #cardCarousel::-webkit-scrollbar-track {
+    background-color: #2d3748;
+    border-radius: 6px;
+  }

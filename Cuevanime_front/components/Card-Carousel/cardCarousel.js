@@ -13,49 +13,7 @@ export class CardCarousel extends HTMLElement {
       })
       .catch((error) => console.error("error loading HTML: " + error));
   }
-  #addCardsBehavior(shadow) {
-    const cardCarousel = shadow.getElementById("cardCarousel");
-    let currentIndex = 0;
-
-    function showCard(index) {
-      const transformValue = `translateX(${-index * 20}rem)`;
-      cardCarousel.style.transform = transformValue;
-    }
-
-    function nextCard() {
-      currentIndex = (currentIndex + 1) % cardCarousel.children.length;
-      showCard(currentIndex);
-    }
-
-    function prevCard() {
-      currentIndex =
-        (currentIndex - 1 + cardCarousel.children.length) %
-        cardCarousel.children.length;
-      showCard(currentIndex);
-    }
-
-    // Agrega lógica para mostrar/ocultar los botones según sea necesario
-    function updateButtons() {
-      const prevButton = document.getElementById("prevButton");
-      const nextButton = document.getElementById("nextButton");
-      prevButton.disabled = currentIndex === 0;
-      nextButton.disabled = currentIndex === cardCarousel.children.length - 1;
-    }
-
-    document.getElementById("prevButton").addEventListener("click", () => {
-      prevCard();
-      updateButtons();
-    });
-
-    document.getElementById("nextButton").addEventListener("click", () => {
-      nextCard();
-      updateButtons();
-    });
-
-    // Inicializa el carrusel
-    showCard(currentIndex);
-    updateButtons();
-  }
+  #addCardsBehavior(shadow) {}
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
     this.#render(shadow);

@@ -1,4 +1,4 @@
-export class Banner extends HTMLElement {
+export class AnimeBackground extends HTMLElement {
   constructor() {
     super();
     this.imgUrl =
@@ -22,4 +22,4 @@ export class Banner extends HTMLElement {
   }
 }
 
-customElements.define("banner-comp", Banner);
+customElements.define("animebackground-comp", AnimeBackground);

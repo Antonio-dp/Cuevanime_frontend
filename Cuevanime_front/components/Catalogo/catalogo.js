@@ -1,6 +1,8 @@
 import { ServicioAnime } from "../../Servicio/ServicioAnime.js";
+
 export class Catalogo extends HTMLElement {
   #servicioAnime = new ServicioAnime();
+
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -16,45 +18,41 @@ export class Catalogo extends HTMLElement {
   async #addCatalogoBehavior() {
     const listaDeAnimes = await this.#consultarAnimes();
 
-    // Función para agregar una card al contenedor
-    function agregarCard(anime) {
-      const container = this.shadowRoot.querySelector("#animeContainer");
+    const container = this.shadowRoot.querySelector("#animeContainer");
+    container.className = "grid grid-cols-6 gap-4"; // Cambia a 6 filas
 
+    listaDeAnimes.forEach((anime) => {
       const card = document.createElement("div");
-      card.className = "w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4";
+      card.className = "p-0"; // Reducido el padding
 
       const enlace = document.createElement("a");
       enlace.href = anime.enlace;
       enlace.className =
-        "block bg-white shadow-md hover:shadow-xl overflow-hidden";
-      const forma = document.createElement("div");
-      forma.className = "relative pb-48 overflow-hidden";
+        "inline-block shadow-md hover:shadow-xl overflow-hidden";
 
+      const contenidoDiv = document.createElement("div"); // Nuevo contenedor
+      contenidoDiv.className = "p-4";
+
+      const imagenDiv = document.createElement("div");
       const imagen = document.createElement("img");
-      imagen.className = "absolute inset-0 h-full w-full object-cover";
+      imagen.className = "object-cover";
       imagen.src = anime.imagenes.card;
-      imagen.alt = `Imagen de ${anime.nombre}`;
+      imagen.width = 300;
+      imagen.height = 300;
+      imagenDiv.appendChild(imagen);
 
-      const contenido = document.createElement("div");
-      contenido.className =
-        "p-4 flex flex-col items-center justify-center bg-brand";
-
+      const nombreDiv = document.createElement("div");
       const nombre = document.createElement("h2");
       nombre.className = "mt-2 mb-2 font-bold text-center text-white";
       nombre.textContent = anime.nombre;
+      nombreDiv.appendChild(nombre);
 
       // Construir la estructura de la card
-      contenido.appendChild(nombre);
-      forma.appendChild(imagen);
-      enlace.appendChild(forma);
-      enlace.appendChild(contenido);
+      contenidoDiv.appendChild(imagenDiv);
+      contenidoDiv.appendChild(nombreDiv);
+      enlace.appendChild(contenidoDiv);
       card.appendChild(enlace);
       container.appendChild(card);
-    }
-
-    // Iterar sobre la lista de animes y agregar las cards
-    listaDeAnimes.forEach((anime) => {
-      agregarCard.call(this, anime); // Usamos call para establecer el contexto correcto
     });
   }
 

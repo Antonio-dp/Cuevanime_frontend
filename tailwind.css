@@ -1162,8 +1162,6 @@ input:checked + .toggle-bg {
   margin-top: 0.5rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -1232,10 +1230,12 @@ input:checked + .toggle-bg {
   height: 24rem;
 }
 
-.h-auto {
-  height: auto;
 .h-\[calc\(100vh-172px\)\] {
   height: calc(100vh - 172px);
+}
+
+.h-auto {
+  height: auto;
 }
 
 .h-full {
@@ -1366,10 +1366,6 @@ input:checked + .toggle-bg {
   grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
-.grid-cols-6 {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -1408,10 +1404,6 @@ input:checked + .toggle-bg {
 
 .justify-around {
   justify-content: space-around;
-}
-
-.gap-4 {
-  gap: 1rem;
 }
 
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
@@ -1508,14 +1500,14 @@ input:checked + .toggle-bg {
   border-color: transparent;
 }
 
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(63 131 248 / var(--tw-bg-opacity));
 }
 
 .bg-blue-700 {
@@ -1581,10 +1573,6 @@ input:checked + .toggle-bg {
 
 .bg-fixed {
   background-attachment: fixed;
-}
-
-.bg-center {
-  background-position: center;
 }
 
 .object-cover {
@@ -1666,9 +1654,6 @@ input:checked + .toggle-bg {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .text-lg {
@@ -2024,8 +2009,5 @@ input:checked + .toggle-bg {
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
-  .lg\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
   }
 }

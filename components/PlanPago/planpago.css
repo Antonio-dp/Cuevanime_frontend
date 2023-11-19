@@ -1,0 +1,99 @@
+.estilo-texto {
+    color: white;
+    font-size: 25px; 
+  }
+  
+  
+  .custom-table {
+    width: 30%;
+    margin-top: 20px;
+    margin: 30px;
+    margin-bottom: 20px;
+    overflow: hidden; 
+    border-collapse: separate; 
+    border-spacing: 0;
+    border-radius: 10px;
+  }
+  
+  .custom-table th, .custom-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    color: #ddd;
+  }
+  
+  .custom-table thead th {
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .custom-table thead th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 0;
+  }
+  
+  .custom-table thead th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 0;
+  }
+  
+  .custom-table tbody td:first-child {
+    border-bottom-left-radius: 10px;
+  }
+  
+  .custom-table tbody td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+  
+  .mb-8 {
+    margin-bottom: 1.55rem;
+  }
+  
+  .mt-10 {
+    margin-top: 6.0rem;
+  }
+  
+  .mt-11 {
+    margin-top: 0.15rem;
+  }
+  
+  .suscribirse-btn {
+    background-color: #ffffff; 
+    color: #007BFF; 
+    border: 1px solid #007BFF;
+    padding: 6px 16px;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; 
+  }
+  
+  .suscribirse-btn:hover {
+    background-color: #007BFF; 
+    color: #ffffff; 
+  }
+  
+  .check {
+    width: 16px;
+    height: 16px; 
+    margin-left: 10px;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .w-15 {
+    width: 10.5rem;
+  }
+  
+  .image-container {
+    position: absolute;
+    left: 0px; 
+    top: 90px; 
+  }
+  .image-container2 {
+    position: absolute;
+    left: 1200px; 
+    top: 90px; 
+  }
+  

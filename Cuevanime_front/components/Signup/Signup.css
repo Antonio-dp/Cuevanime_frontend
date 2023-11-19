@@ -1,0 +1,13 @@
+.fondo{
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    filter: brightness(1);
+    width: 40rem;
+    height: 25rem;
+    margin: auto;
+    margin-top: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+}

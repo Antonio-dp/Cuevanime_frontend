@@ -1130,6 +1130,10 @@ input:checked + .toggle-bg {
   margin-bottom: 1rem;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -1172,6 +1176,14 @@ input:checked + .toggle-bg {
 
 .grid {
   display: grid;
+}
+
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .hidden {

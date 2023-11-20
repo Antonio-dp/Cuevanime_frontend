@@ -1187,6 +1187,12 @@ input:checked + .toggle-bg {
   display: block;
 }
 
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.gap-4 {
+  gap: 1rem;
+}
 .inline-block {
   display: inline-block;
 }

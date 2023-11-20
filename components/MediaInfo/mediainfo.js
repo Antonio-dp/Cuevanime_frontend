@@ -16,17 +16,23 @@ export class MediaCaps extends HTMLElement {
   }
 
   async #addCatalogoBehavior() {
-    const listaDeAnimes = await this.#consultarAnimes();
+    const params = new URLSearchParams(window.location.search);
+    const idAnime = params.get("anime");
+    const animeData = await this.#servicioAnime.obtenerAnime(idAnime);
+    console.log(animeData);
+    const listaDeCapitulos = await this.#servicioAnime.obtenerCapitulos(
+      idAnime
+    );
 
     const container = this.shadowRoot.querySelector("#animeContainer");
     container.className = "grid grid-cols-6 gap-4"; // Cambia a 6 filas
 
-    listaDeAnimes.forEach((anime) => {
+    listaDeCapitulos.forEach((capitulo) => {
       const card = document.createElement("div");
       card.className = "p-0"; // Reducido el padding
 
       const enlace = document.createElement("a");
-      enlace.href = anime.enlace;
+      enlace.href = `Reproductor.html?mediacontent=${capitulo._id}`;
       enlace.className =
         "inline-block shadow-md hover:shadow-xl overflow-hidden";
 
@@ -36,7 +42,7 @@ export class MediaCaps extends HTMLElement {
       const imagenDiv = document.createElement("div");
       const imagen = document.createElement("img");
       imagen.className = "object-cover";
-      imagen.src = anime.imagenes.card;
+      imagen.src = animeData.imagenes.card;
       imagen.width = 300;
       imagen.height = 300;
       imagenDiv.appendChild(imagen);
@@ -44,8 +50,14 @@ export class MediaCaps extends HTMLElement {
       const nombreDiv = document.createElement("div");
       const nombre = document.createElement("h2");
       nombre.className = "mt-2 mb-2 font-bold text-center text-white";
-      nombre.textContent = anime.nombre;
+      console.log(capitulo.title);
+      nombre.textContent = capitulo.title;
       nombreDiv.appendChild(nombre);
+
+      enlace.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = enlace.href;
+      });
 
       // Construir la estructura de la card
       contenidoDiv.appendChild(imagenDiv);
@@ -54,10 +66,6 @@ export class MediaCaps extends HTMLElement {
       card.appendChild(enlace);
       container.appendChild(card);
     });
-  }
-
-  #consultarAnimes() {
-    return this.#servicioAnime.obtenerAnimes();
   }
 
   connectedCallback() {

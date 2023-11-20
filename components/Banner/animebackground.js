@@ -1,8 +1,8 @@
+import { ServicioAnime } from "../../Servicio/ServicioAnime.js";
 export class AnimeBackground extends HTMLElement {
+  #servicioAnime = new ServicioAnime();
   constructor() {
     super();
-    this.imgUrl =
-      "https://static.crunchyroll.com/fms/desktop_large/1350x450/2bda67a8-4e33-4be2-ab6f-41d0acebf298.png"; // Añade la URL de tu imagen aquí
   }
 
   async #render(shadow) {
@@ -10,10 +10,21 @@ export class AnimeBackground extends HTMLElement {
       .then((response) => response.text())
       .then((html) => {
         shadow.innerHTML += html;
-        const bannerImage = shadow.querySelector(".banner-image");
-        bannerImage.src = this.imgUrl;
+        this.#addBannerBehavior(shadow);
       })
       .catch((error) => console.error("error loading HTML: " + error));
+  }
+
+  async #addBannerBehavior(shadow) {
+    const params = new URLSearchParams(window.location.search);
+    const idAnime = params.get("anime");
+    const animeData = await this.#servicioAnime.obtenerAnime(idAnime);
+    const bannerImage = shadow.querySelector(".banner-image");
+    bannerImage.src = animeData.imagenes.card;
+
+    bannerImage.style.width = "100%"; // Ajusta el ancho al 100%
+    bannerImage.style.height = "300px"; // Ajusta la altura automáticamente para mantener la proporción
+    bannerImage.style.objectFit = "cover";
   }
 
   connectedCallback() {

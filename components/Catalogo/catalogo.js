@@ -24,9 +24,8 @@ export class Catalogo extends HTMLElement {
     listaDeAnimes.forEach((anime) => {
       const card = document.createElement("div");
       card.className = "p-0"; // Reducido el padding
-
       const enlace = document.createElement("a");
-      enlace.href = anime.enlace;
+      enlace.href = `MediaContent.html?anime=${anime._id}`;
       enlace.className =
         "inline-block shadow-md hover:shadow-xl overflow-hidden";
 
@@ -46,6 +45,11 @@ export class Catalogo extends HTMLElement {
       nombre.className = "mt-2 mb-2 font-bold text-center text-white";
       nombre.textContent = anime.nombre;
       nombreDiv.appendChild(nombre);
+
+      enlace.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = enlace.href;
+      });
 
       // Construir la estructura de la card
       contenidoDiv.appendChild(imagenDiv);

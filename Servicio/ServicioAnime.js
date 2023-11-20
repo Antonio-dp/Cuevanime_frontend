@@ -4,21 +4,25 @@ export class ServicioAnime {
   #urlCapitulos = this.#urlService + "mediaContents/";
 
   async obtenerAnimes() {
-    let response = await fetch(this.#urlAnimes, {
-      headers: {
-        authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuaWNrbmFtZSI6IkNhcmxvcyIsImlhdCI6MTY5OTczNTExNywiZXhwIjoxNjk5NzM4NzE3fQ.E0ROPlSx78r3kQEvaygVn9tu-F_9eouOPBdyfm1IOfQ`,
-      },
-    });
+    let response = await fetch(this.#urlAnimes, {});
+    let json = await response.json();
+    return json;
+  }
+
+  async obtenerAnime(idAnime) {
+    let response = await fetch(this.#urlAnimes + idAnime, {});
     let json = await response.json();
     return json;
   }
 
   async obtenerCapitulos(idAnime) {
-    let response = await fetch(this.#urlCapitulos + idAnime, {
-      headers: {
-        authorization: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuaWNrbmFtZSI6IkNhcmxvcyIsImlhdCI6MTY5OTczNTExNywiZXhwIjoxNjk5NzM4NzE3fQ.E0ROPlSx78r3kQEvaygVn9tu-F_9eouOPBdyfm1IOfQ`,
-      },
-    });
+    let response = await fetch(this.#urlCapitulos + "/anime/" + idAnime, {});
+    let json = await response.json();
+    return json;
+  }
+
+  async obtenerCapitulo(idCapitulo) {
+    let response = await fetch(this.#urlCapitulos + idCapitulo, {});
     let json = await response.json();
     return json;
   }

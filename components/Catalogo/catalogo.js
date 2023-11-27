@@ -1,5 +1,5 @@
 import { ServicioAnime } from "../../Servicio/ServicioAnime.js";
-
+import page from "page";
 export class Catalogo extends HTMLElement {
   #servicioAnime = new ServicioAnime();
 
@@ -18,14 +18,12 @@ export class Catalogo extends HTMLElement {
   async #addCatalogoBehavior() {
     const listaDeAnimes = await this.#consultarAnimes();
 
-    const container = this.shadowRoot.querySelector("#animeContainer");
-    container.className = "grid grid-cols-6 gap-4"; // Cambia a 6 filas
-
+    const container = this.shadowRoot.querySelector("#animeContainer"); // Cambia a 6 filas
     listaDeAnimes.forEach((anime) => {
       const card = document.createElement("div");
       card.className = "p-0"; // Reducido el padding
       const enlace = document.createElement("a");
-      enlace.href = `MediaContent.html?anime=${anime._id}`;
+      enlace.href = `/anime/${anime._id}`;
       enlace.className =
         "inline-block shadow-md hover:shadow-xl overflow-hidden";
 
@@ -48,7 +46,7 @@ export class Catalogo extends HTMLElement {
 
       enlace.addEventListener("click", (e) => {
         e.preventDefault();
-        window.location.href = enlace.href;
+        location.href = enlace.href;
       });
 
       // Construir la estructura de la card

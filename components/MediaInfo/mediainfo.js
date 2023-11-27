@@ -16,13 +16,12 @@ export class MediaCaps extends HTMLElement {
   }
 
   async #addCatalogoBehavior() {
-    const params = new URLSearchParams(window.location.search);
-    const idAnime = params.get("anime");
-    const animeData = await this.#servicioAnime.obtenerAnime(idAnime);
+    const url = window.location.pathname;
+    const id = url.split("/").at(-1);
+    console.log(id);
+    const animeData = await this.#servicioAnime.obtenerAnime(id);
     console.log(animeData);
-    const listaDeCapitulos = await this.#servicioAnime.obtenerCapitulos(
-      idAnime
-    );
+    const listaDeCapitulos = await this.#servicioAnime.obtenerCapitulos(id);
 
     const container = this.shadowRoot.querySelector("#animeContainer");
     container.className = "grid grid-cols-6 gap-4"; // Cambia a 6 filas
@@ -32,7 +31,7 @@ export class MediaCaps extends HTMLElement {
       card.className = "p-0"; // Reducido el padding
 
       const enlace = document.createElement("a");
-      enlace.href = `Reproductor.html?mediacontent=${capitulo._id}`;
+      enlace.href = `/watch/${capitulo._id}`;
       enlace.className =
         "inline-block shadow-md hover:shadow-xl overflow-hidden";
 

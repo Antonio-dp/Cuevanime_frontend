@@ -61,7 +61,7 @@ export class MovieCard extends HTMLElement {
     movieButton.className =
       "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded block mx-auto text-center"; // Added block, mx-auto, and text-center
     movieButton.style.backgroundColor = "#3B82F6"; // Added explicit background color
-    movieButton.textContent = "Ver película";
+    movieButton.textContent = "Ver Anime";
 
     // Añadir el título, la sinopsis y el botón al contenedor de texto
     textDiv.appendChild(movieTitle);

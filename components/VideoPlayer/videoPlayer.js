@@ -16,8 +16,8 @@ export class Video extends HTMLElement {
   }
 
   async #addVideoPlayerBehavior(shadow) {
-    const params = new URLSearchParams(window.location.search);
-    const mediaContentId = params.get("mediacontent");
+    const url = window.location.pathname;
+    const mediaContentId = url.split("/").at(-1);
     const capituloData = await this.#servicioAnime.obtenerCapitulo(
       mediaContentId
     );

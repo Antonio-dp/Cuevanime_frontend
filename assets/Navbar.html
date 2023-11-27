@@ -3,7 +3,7 @@
   <div class="container mx-auto flex items-center justify-between">
     <div class="flex items-center">
       <!-- Logo -->
-      <a href="Home.html" class="text-white text-lg font-semibold mr-4">
+      <a href="/" class="text-white text-lg font-semibold mr-4">
         <!-- Reemplaza 'ruta-del-logo.png' con la ruta a tu archivo de imagen -->
         <img
           src="https://cdn.discordapp.com/attachments/765591939109879818/1170903076299874406/WhatsApp_Image_2023-11-05_at_12.08.23_AM__1_-removebg-preview.png?ex=655abb77&is=65484677&hm=e6430a66d1c8017ee0f8f5a46203c609b160db3781851ba4560c33bba6f2300f&"
@@ -17,7 +17,7 @@
         <!-- Categoría con menú desplegable -->
         <div class="relative group">
           <a
-            href="catalogoPrincipal.html"
+            href="/catalogo"
             class="text-white md:hover:text-gray-300 md:focus:text-gray-300 focus:outline-none"
             id="generosDropdown"
           >
@@ -42,14 +42,19 @@
     </div>
 
     <!-- Icono de lupa para abrir el campo de búsqueda -->
-    <div class="ml-auto mr-4">
+    <div class="ml-auto mr-4 relative">
       <button id="searchToggle" class="text-white focus:outline-none">
         <img src="../icons/buscar.png" alt="buscar" class="w-4 h-4" />
       </button>
+      <!-- Contenedor para los resultados de la búsqueda -->
+      <ul
+        id="searchResults"
+        class="absolute right-0 mt-2 w-64 bg-white text-black shadow-lg rounded-lg p-2 hidden"
+      ></ul>
     </div>
 
     <!-- Campo de búsqueda (visible en pantallas pequeñas) -->
-    <div id="searchInput" class="hidden mr-3">
+    <div id="searchInput" class="mr-3">
       <input
         type="text"
         placeholder="Buscar..."

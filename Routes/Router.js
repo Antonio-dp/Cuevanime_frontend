@@ -10,12 +10,19 @@ import "../components/MediaInfo/mediainfo.js";
 import "../components/Filter/filter.js";
 import "../components/VideoPlayer/videoPlayer.js";
 import "../components/PlanPago/planpago.js";
+import "../components/Login/Login.js"
 import page from "page";
 page("/", async () => {
   const response = await fetch("/pages/Home.html");
   const html = await response.text();
   document.getElementById("main").innerHTML = html;
 });
+
+page("/login", async () => {
+  const response = await fetch("/pages/login.html");
+  const html = await response.text();
+  document.getElementById("main").innerHTML = html;
+})
 
 page("/catalogo", async () => {
   const response = await fetch("/pages/CatalogoPrincipal.html");

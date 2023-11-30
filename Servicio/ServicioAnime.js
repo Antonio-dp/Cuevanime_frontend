@@ -16,6 +16,18 @@ export class ServicioAnime {
     return json;
   }
 
+  async registro(usuario) {
+    let response = await fetch(this.#urlUsuarios , {
+      method: "POST",
+      body: JSON.stringify(usuario),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    let json = await response.json();
+    return json;
+  }
+
   async obtenerAnimes() {
     let response = await fetch(this.#urlAnimes, {});
     let json = await response.json();

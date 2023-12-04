@@ -12,7 +12,25 @@ export class ServicioAnime {
         "Content-Type": "application/json",
       },
     });
+    sessionStorage.setItem('id', json._id)
+    sessionStorage.setItem('nickname', json.nickname)
+    sessionStorage.setItem('imagen', json.imagen)
     let json = await response.json();
+    return json;
+  }
+
+  async UpdateUser(usuario) {
+    let response = await fetch(this.#urlUsuarios + `:${sessionStorage.getItem('_id')}`, {
+      method: "PUT",
+      body: JSON.stringify(sessionStorage.getItem('_id'), usuario),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    let json = await response.json();
+    sessionStorage.setItem('id', json._id)
+    sessionStorage.setItem('nickname', json.nickname)
+    sessionStorage.setItem('imagen', json.imagen)
     return json;
   }
 

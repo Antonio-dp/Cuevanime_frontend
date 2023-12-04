@@ -20,9 +20,7 @@ export class Login extends HTMLElement {
 
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
-    
     this.#render(shadow);
-    
   }
 
   #addLoginBehavior(shadow) {
@@ -33,16 +31,15 @@ export class Login extends HTMLElement {
       const login = await this.#login(shadow)
       console.log(login)
 
-      if(!login.message){
+      if (!login.message) {
         window.location.href = '/'
-      }else{
-        console.log(login.message)
+      } else {
+        this.showToast(shadow)
       }
     })
   }
 
   async #login(shadow) {
-    console.log("sadadadadas")
     const nickname = shadow.getElementById('nickname').value
     const password = shadow.getElementById('password').value
 
@@ -57,6 +54,19 @@ export class Login extends HTMLElement {
       console.log("Error al intentar iniciar sesión")
       return false
     }
+  }
+
+  showToast(shadow) {
+    const toastBox = shadow.querySelector('#toastBox')
+    let toast = document.createElement('div')
+    toast.classList.add('toast')
+    const msg = '<i class="fa-solid fa-circle-exclamation"></i> Nickname or password incorrect'
+    toast.innerHTML = msg
+    toastBox.appendChild(toast)
+
+    setTimeout(()=>{
+      toast.remove()
+    },4000)
   }
 }
 

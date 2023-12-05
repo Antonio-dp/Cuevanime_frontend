@@ -3,6 +3,7 @@ export class ServicioAnime {
   #urlAnimes = this.#urlService + "animes/";
   #urlCapitulos = this.#urlService + "mediaContents/";
   #urlUsuarios = this.#urlService + "usuarios/";
+  #urlTemporadas = this.#urlService + "temporadas/";
 
   async login(usuario) {
     let response = await fetch(this.#urlUsuarios + "login", {
@@ -67,6 +68,12 @@ export class ServicioAnime {
 
   async obtenerCapitulo(idCapitulo) {
     let response = await fetch(this.#urlCapitulos + idCapitulo, {});
+    let json = await response.json();
+    return json;
+  }
+
+  async obtenerTemporadas() {
+    let response = await fetch(this.#urlTemporadas, {});
     let json = await response.json();
     return json;
   }

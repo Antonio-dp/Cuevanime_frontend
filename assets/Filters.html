@@ -30,34 +30,24 @@
     class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
     id="options"
   >
-    <div
-      class="py-1"
-      role="menu"
-      aria-orientation="vertical"
-      aria-labelledby="options-menu"
-    >
-      <label
-        class="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-        role="menuitem"
-      >
-        <input type="checkbox" name="genre" value="accion" class="mr-1" />
-        Acción
-      </label>
-      <label
-        class="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-        role="menuitem"
-      >
-        <input type="checkbox" name="genre" value="aventura" class="mr-1" />
-        Aventura
-      </label>
-      <label
-        class="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-        role="menuitem"
-      >
-        <input type="checkbox" name="genre" value="comedia" class="mr-1" />
-        Comedia
-      </label>
-      <!-- Agrega más checkboxes según sea necesario -->
-    </div>
+  <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+    <label class="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+      <input type="radio" name="genre" value="accion" class="mr-1" />
+      Acción
+    </label>
+    <label class="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+      <input type="radio" name="genre" value="aventura" class="mr-1" />
+      Aventura
+    </label>
+    <label class="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+      <input type="radio" name="genre" value="comedia" class="mr-1" />
+      Comedia
+    </label>
+    <label class="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
+      <input type="radio" name="genre" value="showall" class="mr-1" />
+      Mostrar todos
+    </label>
+    <!-- Agrega más radio buttons según sea necesario -->
+  </div>
   </div>
 </div>

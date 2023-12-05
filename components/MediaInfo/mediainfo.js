@@ -5,27 +5,30 @@ export class MediaCaps extends HTMLElement {
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-  }
+    this.attachShadow({ mode: "open" }); 
+   }
 
   async #render() {
     const response = await fetch("./../assets/Catalogo.html");
     const html = await response.text();
     this.shadowRoot.innerHTML = html;
-    this.#addCatalogoBehavior();
   }
 
-  async #addCatalogoBehavior() {
+  async #addCatalogoBehavior(season) {
     const url = window.location.pathname;
     const id = url.split("/").at(-1);
-    console.log(id);
-    const animeData = await this.#servicioAnime.obtenerAnime(id);
-    console.log(animeData);
     const listaDeCapitulos = await this.#servicioAnime.obtenerCapitulos(id);
+    try {
+      const listaDeCapitulosPorTemporada = listaDeCapitulos.filter((capitulo) => capitulo.temporada === season);
+      this.#mostrarCapitulos(listaDeCapitulosPorTemporada);
+    } catch (error) {
 
-    const container = this.shadowRoot.querySelector("#animeContainer");
-    container.className = "grid grid-cols-6 gap-4"; // Cambia a 6 filas
+    }
+  }
 
+  #mostrarCapitulos(listaDeCapitulos) {
+    const container = this.shadowRoot.querySelector("#animeContainer")// Cambia a 6 filas
+    container.innerHTML = '';
     listaDeCapitulos.forEach((capitulo) => {
       const card = document.createElement("div");
       card.className = "p-0"; // Reducido el padding
@@ -41,7 +44,7 @@ export class MediaCaps extends HTMLElement {
       const imagenDiv = document.createElement("div");
       const imagen = document.createElement("img");
       imagen.className = "object-cover";
-      imagen.src = animeData.imagenes.card;
+      imagen.src = capitulo.img;
       imagen.width = 300;
       imagen.height = 300;
       imagenDiv.appendChild(imagen);
@@ -49,7 +52,6 @@ export class MediaCaps extends HTMLElement {
       const nombreDiv = document.createElement("div");
       const nombre = document.createElement("h2");
       nombre.className = "mt-2 mb-2 font-bold text-center text-white";
-      console.log(capitulo.title);
       nombre.textContent = capitulo.title;
       nombreDiv.appendChild(nombre);
 
@@ -67,9 +69,15 @@ export class MediaCaps extends HTMLElement {
     });
   }
 
+  handleSeasonSelected(event) {
+    const season = event.detail;
+    console.log(season)
+    this.#addCatalogoBehavior(season);
+  }
+
   connectedCallback() {
     this.#render();
-  }
+    }
 }
 
 customElements.define("mediainfo-comp", MediaCaps);

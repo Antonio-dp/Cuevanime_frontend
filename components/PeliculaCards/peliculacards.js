@@ -57,7 +57,7 @@ export class MovieCard extends HTMLElement {
     movieSynopsis.textContent = anime.sinopsis;
 
     const movieButton = document.createElement("a");
-    movieButton.href = `movie.html?id=${anime.id}`;
+    movieButton.href = `/anime/${anime._id}`;
     movieButton.className =
       "bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded block mx-auto text-center"; // Added block, mx-auto, and text-center
     movieButton.style.backgroundColor = "#3B82F6"; // Added explicit background color

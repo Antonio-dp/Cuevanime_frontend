@@ -5,8 +5,8 @@ export class MediaCaps extends HTMLElement {
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-  }
+    this.attachShadow({ mode: "open" }); 
+   }
 
   async #render() {
     const response = await fetch("./../assets/Catalogo.html");
@@ -18,14 +18,18 @@ export class MediaCaps extends HTMLElement {
   async #addCatalogoBehavior() {
     const url = window.location.pathname;
     const id = url.split("/").at(-1);
-    console.log(id);
     const animeData = await this.#servicioAnime.obtenerAnime(id);
     console.log(animeData);
     const listaDeCapitulos = await this.#servicioAnime.obtenerCapitulos(id);
+    const listaDeTemporadas = await this.#servicioAnime.obtenerTemporadas();
+    const temporadaSeleccionada = 'Temporada 1';
 
-    const container = this.shadowRoot.querySelector("#animeContainer");
-    container.className = "grid grid-cols-6 gap-4"; // Cambia a 6 filas
+    this.#mostrarCapitulos(listaDeCapitulos);
+  }
 
+  #mostrarCapitulos(listaDeCapitulos) {
+    const container = this.shadowRoot.querySelector("#animeContainer")// Cambia a 6 filas
+    container.innerHTML = '';
     listaDeCapitulos.forEach((capitulo) => {
       const card = document.createElement("div");
       card.className = "p-0"; // Reducido el padding
@@ -66,6 +70,7 @@ export class MediaCaps extends HTMLElement {
       container.appendChild(card);
     });
   }
+
 
   connectedCallback() {
     this.#render();

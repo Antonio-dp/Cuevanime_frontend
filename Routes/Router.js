@@ -12,6 +12,7 @@ import "../components/VideoPlayer/videoPlayer.js";
 import "../components/PlanPago/planpago.js";
 import "../components/Login/Login.js"
 import "../components/Signup/Signup.js"
+import "../components/Perfil/perfil.js"
 import page from "page";
 page("/", async () => {
   const response = await fetch("/pages/Home.html");
@@ -27,6 +28,12 @@ page("/login", async () => {
 
 page("/signup", async () => {
   const response = await fetch("/pages/Signup.html");
+  const html = await response.text();
+  document.getElementById("main").innerHTML = html;
+})
+
+page("/perfil", async () => {
+  const response = await fetch("/pages/Perfil.html");
   const html = await response.text();
   document.getElementById("main").innerHTML = html;
 })

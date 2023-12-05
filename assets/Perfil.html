@@ -8,34 +8,37 @@
       <img id="imagenPerfil" class="image" src="icons\padorusage.jpg" alt="" />
     </div>
     <div>
-      <h3 class="mx-auto mb-8 text-center text-white bg-transparent border-transparent">Nombre</h3>
+      <h3 id="nombre" class="mx-auto mb-8 text-center text-white bg-transparent border-transparent">Nombre</h3>
     </div>
 
     <div id="contenedorBotones" class="flex flex-row items-center justify-between max-w-sm p-4 mx-auto">
       <button
-        class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion">
+        id="btn1" class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion" disabled>
         <img class="w-16 border border-gray-500 rounded-full " src="icons\padorusage.jpg" alt="" />
       </button>
       <button
-        class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion">
+        id="btn2" class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion" disabled>
         <img class="w-16 border border-gray-500 rounded-full " src="icons\yahiko.jpeg" alt="" />
       </button>
       <button
-        class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion">
+        id="btn3" class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion" disabled>
         <img class="w-16 border border-gray-500 rounded-full " src="icons\zoro.jpeg" alt="" />
       </button>
       <button
-        class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion">
+        id="btn4" class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion" disabled>
         <img class="w-16 border border-gray-500 rounded-full " src="icons\Bocchi.jpeg" alt="" />
       </button>
       <button
-        class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion">
+        id="btn5" class="flex items-center mx-2 duration-150 rounded-full outline outline-2 outline-gray-500 hover:scale-110 transtion" disabled>
         <img class="w-16 border border-gray-500 rounded-full " src="icons\satoru.jpeg" alt="" />
       </button>
     </div>
 
     <div class="p-2">
       <form class="flex flex-col mb-24">
+        <input id="email" name="email" type="email" maxlength="255" disabled placeholder="Email"
+        class="w-full text-center text-white bg-transparent border-none outline-none focus:outline-none">
+        <hr>
         <input id="username" name="username" type="text" maxlength="255" disabled placeholder="Username"
           class="w-full text-center text-white bg-transparent border-none outline-none focus:outline-none">
         <hr>

@@ -1,3 +1,4 @@
+import { list } from "postcss";
 import { ServicioAnime } from "../../Servicio/ServicioAnime.js";
 import page from "page";
 export class Catalogo extends HTMLElement {
@@ -12,13 +13,17 @@ export class Catalogo extends HTMLElement {
     const response = await fetch("./../assets/Catalogo.html");
     const html = await response.text();
     this.shadowRoot.innerHTML = html;
-    this.#addCatalogoBehavior();
+    this.addCatalogoBehavior();
   }
 
-  async #addCatalogoBehavior() {
+  async addCatalogoBehavior() {
     const listaDeAnimes = await this.#consultarAnimes();
-
+    this.#mostrarAnimes(listaDeAnimes);
+    
+  }
+  #mostrarAnimes(listaDeAnimes){
     const container = this.shadowRoot.querySelector("#animeContainer"); // Cambia a 6 filas
+    container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos animes
     listaDeAnimes.forEach((anime) => {
       const card = document.createElement("div");
       card.className = "p-0"; // Reducido el padding
@@ -58,6 +63,21 @@ export class Catalogo extends HTMLElement {
     });
   }
 
+  async filtrarPorGenero(genero) {
+    console.log(genero);
+    if(genero == "showall"){
+      this.addCatalogoBehavior();
+      return;
+    }
+    const listaDeAnimes = await this.#consultarAnimes();
+    const animesFiltrados = new Array();
+    listaDeAnimes.forEach(anime => {
+      if(anime.genero == genero){
+        animesFiltrados.push(anime)
+      }
+    })
+    this.#mostrarAnimes(animesFiltrados);
+  }
   #consultarAnimes() {
     return this.#servicioAnime.obtenerAnimes();
   }

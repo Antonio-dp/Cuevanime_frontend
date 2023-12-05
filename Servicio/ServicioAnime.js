@@ -9,26 +9,27 @@ export class ServicioAnime {
       method: "POST",
       body: JSON.stringify(usuario),
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
     });
+    let {user:json} = await response.json();
+    console.log(json);
     sessionStorage.setItem('id', json._id)
     sessionStorage.setItem('nickname', json.nickname)
     sessionStorage.setItem('imagen', json.imagen)
-    let json = await response.json();
     return json;
   }
 
   async UpdateUser(usuario) {
-    let response = await fetch(this.#urlUsuarios + `:${sessionStorage.getItem('_id')}`, {
+    let response = await fetch(this.#urlUsuarios + `${sessionStorage.getItem('id')}`, {
       method: "PUT",
-      body: JSON.stringify(sessionStorage.getItem('_id'), usuario),
+      body: JSON.stringify(usuario),
       headers: {
         "Content-Type": "application/json",
       },
     });
-    let json = await response.json();
-    sessionStorage.setItem('id', json._id)
+    let {user:json} = await response.json();
+    console.log(json)
     sessionStorage.setItem('nickname', json.nickname)
     sessionStorage.setItem('imagen', json.imagen)
     return json;

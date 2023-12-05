@@ -18,7 +18,6 @@ export class AnimeBackground extends HTMLElement {
   async #addBannerBehavior(shadow) {
     const url = window.location.pathname;
     const id = url.split("/").at(-1);
-    console.log(id);
     const animeData = await this.#servicioAnime.obtenerAnime(id);
     const bannerImage = shadow.querySelector(".banner-image");
     bannerImage.src = animeData.imagenes.card;

@@ -37,7 +37,7 @@ export class MovieCard extends HTMLElement {
     movieImg.className = "w-full";
     movieImg.style.width = "601px"; // Set the width
     movieImg.style.height = "336px"; // Set the height
-    movieImg.src = anime.imagenes.card;
+    movieImg.src = anime.imagenes.bannerHorizontal;
     movieImg.alt = anime.nombre;
     imgDiv.appendChild(movieImg);
     movieDiv.appendChild(imgDiv); // Añadir la imagen directamente al contenedor de la película

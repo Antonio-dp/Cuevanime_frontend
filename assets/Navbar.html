@@ -7,20 +7,15 @@
         <!-- Reemplaza 'ruta-del-logo.png' con la ruta a tu archivo de imagen -->
         <img
           src="https://cdn.discordapp.com/attachments/765591939109879818/1170903076299874406/WhatsApp_Image_2023-11-05_at_12.08.23_AM__1_-removebg-preview.png?ex=655abb77&is=65484677&hm=e6430a66d1c8017ee0f8f5a46203c609b160db3781851ba4560c33bba6f2300f&"
-          alt="Logo"
-          class="w-10 h-10"
-        />
+          alt="Logo" class="w-10 h-10" />
       </a>
 
       <!-- Menú de categorías (visible en pantallas grandes) -->
       <div class="hidden md:flex space-x-4">
         <!-- Categoría con menú desplegable -->
         <div class="relative group">
-          <a
-            href="/catalogo"
-            class="text-white md:hover:text-gray-300 md:focus:text-gray-300 focus:outline-none"
-            id="generosDropdown"
-          >
+          <a href="/catalogo" class="text-white md:hover:text-gray-300 md:focus:text-gray-300 focus:outline-none"
+            id="generosDropdown">
             Explorar
             <img src="../icons/abajo.png" alt="Logo" class="w-2 h-2" />
           </a>
@@ -28,10 +23,7 @@
       </div>
 
       <!-- Menú desplegable (visible en pantallas pequeñas) -->
-      <div
-        id="menuDropdown"
-        class="lg:hidden hidden bg-black text-white p-4 flex-col items-end"
-      >
+      <div id="menuDropdown" class="lg:hidden hidden bg-black text-white p-4 flex-col items-end">
         <a href="#" class="block">Catalogo</a>
         <a href="#" class="block">Películas</a>
       </div>
@@ -42,43 +34,30 @@
     </div>
 
     <!-- Icono de lupa para abrir el campo de búsqueda -->
-    <div class="ml-auto mr-4 relative">
+    <div id="divBusqueda" class="ml-auto mr-4 relative">
       <button id="searchToggle" class="text-white focus:outline-none">
         <img src="../icons/buscar.png" alt="buscar" class="w-4 h-4" />
       </button>
       <!-- Contenedor para los resultados de la búsqueda -->
-      <ul
-        id="searchResults"
-        class="absolute right-0 mt-2 w-64 bg-white text-black shadow-lg rounded-lg p-2 hidden"
-      ></ul>
+      <ul id="searchResults" class="absolute right-0 mt-2 w-64 bg-white text-black shadow-lg rounded-lg p-2 hidden">
+      </ul>
     </div>
 
     <!-- Campo de búsqueda (visible en pantallas pequeñas) -->
     <div id="searchInput" class="mr-3">
-      <input
-        type="text"
-        placeholder="Buscar..."
-        class="p-2 border border-gray-500 rounded"
-      />
+      <input type="text" placeholder="Buscar..." class="p-2 border border-gray-500 rounded" />
     </div>
 
     <!-- Icono de usuario con menú desplegable -->
-    <div class="relative group mr-10">
-      <button id="userToggle" class="text-white focus:outline-none">
-        <img
-          src="../icons/padorusage.jpg"
-          alt="Usuario"
-          class="w-6 h-6 rounded-xl"
-        />
+    <div id="divMenu" class="relative group flex items-center justify-center">
+      <button id="userToggle" class="text-white focus:outline-none ">
+        <img id="userImage" src="icons/padorusage.jpg" alt="Usuario" class="w-10 h-10 rounded-full" />
       </button>
       <!-- Menú desplegable para opciones de usuario -->
-      <div
-        id="userMenu"
-        class="hidden absolute bg-black text-white p-2 space-y-2"
-      >
-        <a href="#" class="block">Perfil</a>
+      <div id="userMenu" class="hidden absolute bg-black text-white mt-44 mr-20 p-2 space-y-2">
+        <a href="/perfil" class="block">Perfil</a>
         <a href="#" class="block">Configuración</a>
-        <a href="#" class="block">Cerrar sesión</a>
+        <a href="/login" class="block">Cerrar sesión</a>
       </div>
     </div>
   </div>

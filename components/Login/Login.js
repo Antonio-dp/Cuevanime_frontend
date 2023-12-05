@@ -13,6 +13,7 @@ export class Login extends HTMLElement {
       .then((response) => response.text())
       .then((html) => {
         shadow.innerHTML += html;
+        this.navLogin()
         this.#addLoginBehavior(shadow)
       })
       .catch((error) => console.error("error loading HTML: " + error));
@@ -21,6 +22,20 @@ export class Login extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
     this.#render(shadow);
+  }
+
+  navLogin(){
+    const navbar = document.querySelector('navbar-comp')
+        if(navbar){
+          navbar.navLogin()
+        }
+  }
+
+  navNormal(){
+    const navbar = document.querySelector('navbar-comp')
+        if(navbar){
+          navbar.navNormal()
+        }
   }
 
   #addLoginBehavior(shadow) {
@@ -33,6 +48,7 @@ export class Login extends HTMLElement {
 
       if (!login.message) {
         window.location.href = '/'
+        navNormal()
       } else {
         this.showToast(shadow)
       }
@@ -52,7 +68,8 @@ export class Login extends HTMLElement {
       return response
     } catch (e) {
       console.log("Error al intentar iniciar sesión")
-      return false
+      const response = {message: e.message}
+      return response
     }
   }
 

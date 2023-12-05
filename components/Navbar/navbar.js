@@ -1,6 +1,7 @@
 import { ServicioAnime } from "../../Servicio/ServicioAnime.js";
 export class Navbar extends HTMLElement {
   #servicioAnime = new ServicioAnime();
+  #imagen = sessionStorage.getItem("imagen");
   constructor() {
     super();
   }
@@ -10,10 +11,39 @@ export class Navbar extends HTMLElement {
       const response = await fetch("./../assets/Navbar.html");
       const html = await response.text();
       shadow.innerHTML += html;
+      this.#cargarImagen(shadow)
       this.#addMenuBehavior(shadow);
     } catch (error) {
       console.error("Error loading HTML:", error);
     }
+  }
+
+  #cargarImagen(){
+    const fotoPerfil = this.shadowRoot.getElementById('userImage');
+    fotoPerfil.src = this.#imagen;
+  }
+
+  navLogin(){
+    const div_buscar = this.shadowRoot.getElementById('divBusqueda')
+    const div_search = this.shadowRoot.getElementById('searchInput')
+    const div_menu = this.shadowRoot.getElementById('divMenu')
+    div_buscar.style.display = 'none'
+    div_search.style.display = 'none'
+    div_menu.style.display = 'none'
+  }
+
+  navNormal(){
+    const div_buscar = this.shadowRoot.getElementById('divBusqueda')
+    const div_search = this.shadowRoot.getElementById('searchInput')
+    const div_menu = this.shadowRoot.getElementById('divMenu')
+    div_buscar.style.display = 'block'
+    div_search.style.display = 'block'
+    div_menu.style.display = 'block'
+  }
+
+  recibirImagen(imagen){
+    this.#imagen = imagen
+    this.#cargarImagen()
   }
 
   #addMenuBehavior(shadow) {
@@ -94,6 +124,7 @@ export class Navbar extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
     this.#render(shadow);
+    
   }
 }
 customElements.define("navbar-comp", Navbar);

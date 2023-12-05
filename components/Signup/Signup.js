@@ -11,6 +11,7 @@ export class Signup extends HTMLElement {
       .then((response) => response.text())
       .then((html) => {
         shadow.innerHTML += html;
+        this.navSignup()
         this.#addSignUpBehavior(shadow)
       })
       .catch((error) => console.error("error loading HTML: " + error));
@@ -18,6 +19,13 @@ export class Signup extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
     this.#render(shadow);
+  }
+
+  navSignup(){
+    const navbar = document.querySelector('navbar-comp')
+        if(navbar){
+          navbar.navLogin()
+        }
   }
 
   #addSignUpBehavior(shadow) {

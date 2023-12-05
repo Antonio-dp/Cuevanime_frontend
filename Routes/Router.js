@@ -12,6 +12,7 @@ import "../components/VideoPlayer/videoPlayer.js";
 import "../components/PlanPago/planpago.js";
 import "../components/Login/Login.js"
 import "../components/Signup/Signup.js"
+import "../components/Season/seasonselector.js";
 import page from "page";
 page("/", async () => {
   const response = await fetch("/pages/Home.html");
@@ -37,7 +38,7 @@ page("/catalogo", async () => {
   document.getElementById("main").innerHTML = html;
 });
 
-page("/anime/:id", async (context) => {
+page("/anime/:id", async () => {
   try {
     const response = await fetch("/pages/MediaContent.html");
     const html = await response.text();

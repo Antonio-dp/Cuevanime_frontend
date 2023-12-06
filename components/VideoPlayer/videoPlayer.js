@@ -25,6 +25,7 @@ export class Video extends HTMLElement {
     const button1 = shadow.querySelector("#btnServer1");
     const button2 = shadow.querySelector("#btnServer2");
     const videoIframe = shadow.querySelector("#videoIframe");
+    this.#cambiarServidor(videoIframe, capituloData.url[0]);
 
     button1.addEventListener("click", () => {
       this.#cambiarServidor(videoIframe, capituloData.url[0]);

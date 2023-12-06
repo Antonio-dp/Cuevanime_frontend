@@ -170,7 +170,7 @@ export class Perfil extends HTMLElement {
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         const url = button.querySelector('img').src;
-        const nuevaUrl = url.replace('http://localhost:5173/', '');
+        const nuevaUrl = url.replace('http://localhost:5173', '');
         this.#fotoPerfil = nuevaUrl
         imagenPerfil.src = this.#fotoPerfil;
         console.log(this.#fotoPerfil)

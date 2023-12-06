@@ -20,10 +20,10 @@ export class AnimeBackground extends HTMLElement {
     const id = url.split("/").at(-1);
     const animeData = await this.#servicioAnime.obtenerAnime(id);
     const bannerImage = shadow.querySelector(".banner-image");
-    bannerImage.src = animeData.imagenes.card;
+    bannerImage.src = animeData.imagenes.bannerHorizontal;
 
     bannerImage.style.width = "100%"; // Ajusta el ancho al 100%
-    bannerImage.style.height = "300px"; // Ajusta la altura automáticamente para mantener la proporción
+    bannerImage.style.height = "500px"; // Ajusta la altura automáticamente para mantener la proporción
     bannerImage.style.objectFit = "cover";
   }
 

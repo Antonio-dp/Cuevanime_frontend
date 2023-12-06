@@ -27,9 +27,7 @@ export class MovieCard extends HTMLElement {
   #createMovieCard(anime) {
     // Crear el contenedor de la película con una disposición de flexbox
     const movieDiv = document.createElement("div");
-    movieDiv.className =
-      "flex max-w-sm rounded overflow-hidden shadow-lg m-4 mx-auto p-6";
-
+    movieDiv.className = "flex"; 
     // Crear el contenedor para la imagen y aplicarle un ancho fijo
     const imgDiv = document.createElement("div");
     imgDiv.className = "w-1/3";
@@ -37,7 +35,7 @@ export class MovieCard extends HTMLElement {
     movieImg.className = "w-full";
     movieImg.style.width = "601px"; // Set the width
     movieImg.style.height = "336px"; // Set the height
-    movieImg.src = anime.imagenes.card;
+    movieImg.src = anime.imagenes.bannerHorizontal;
     movieImg.alt = anime.nombre;
     imgDiv.appendChild(movieImg);
     movieDiv.appendChild(imgDiv); // Añadir la imagen directamente al contenedor de la película

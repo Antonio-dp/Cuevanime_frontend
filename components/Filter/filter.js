@@ -23,6 +23,16 @@ export class Filter extends HTMLElement {
       const selectedGenre = dropdown.querySelector('input[name="genre"]:checked').value;
       this.#filterCatalogueByGenres(selectedGenre);
     });
+    
+    document.body.addEventListener('mouseup', function(event) {
+      var isClickInsideButton = button.contains(event.target);
+      var isClickInsideDropdown = dropdown.contains(event.target);
+  
+      if (!isClickInsideButton && !isClickInsideDropdown) {
+        // El clic fue fuera del botón y del menú de opciones, cierra el menú
+        dropdown.classList.add('hidden');
+      }
+    });
   }
 
   #filterCatalogueByGenres(genero) {

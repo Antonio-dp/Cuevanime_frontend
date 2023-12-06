@@ -7,7 +7,7 @@
 <main class="flex-grow h-screen bg-fixed bg-cover ">
     <div class="flex justify-center mx-4 space-x-8">
 
-        <table class="custom-table">
+        <table class="custom-table bg-purple-700 opacity-50 brightness-125">
             <thead>
                 <tr>
                     <th class="mt-2 mb-2 font-bold text-center text-white estilo-texto">Gratis</th>
@@ -36,7 +36,7 @@
         <table class="custom-table">
             <thead>
                 <tr>
-                    <th class="mt-2 mb-2 font-bold text-center text-white estilo-texto">Premium</th>
+                    <th class="mt-2 mb-2 font-bold text-center text-white estilo-texto">Premium 30 días</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,13 +54,19 @@
                             <div class="mt-4 mb-8 icon">&#10004;</div>
                             <div class="mt-4 mb-8">Libre de anuncios</div>
                         </div>
-                        <button class="mt-4 mb-8 suscribirse-btn">
+                        <button id="suscribirse" class="mt-4 mb-8 suscribirse-btn">
                             Suscribirse
                         </button>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-btn">&times;</span>
+                <h2>Usted se ha suscrito</h2>
+            </div>
+        </div>
         <div class="image-container2">
             <img src="../icons/imagen2.png" alt="Logo" class="h-auto max-w-full w-15" />
         </div>

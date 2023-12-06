@@ -1,99 +1,169 @@
 .estilo-texto {
-    color: white;
-    font-size: 25px; 
+  color: white;
+  font-size: 25px;
+}
+
+
+.custom-table {
+  width: 30%;
+  margin-top: 20px;
+  margin: 30px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+}
+
+.custom-table th,
+.custom-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  color: #ddd;
+}
+
+.custom-table thead th {
+  border-bottom: 2px solid #ddd;
+}
+
+.custom-table thead th:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 0;
+}
+
+.custom-table thead th:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 0;
+}
+
+.custom-table tbody td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.custom-table tbody td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.mb-8 {
+  margin-bottom: 1.55rem;
+}
+
+.mt-10 {
+  margin-top: 6.0rem;
+}
+
+.mt-11 {
+  margin-top: 0.15rem;
+}
+
+.suscribirse-btn {
+  background-color: #ffffff;
+  color: #007BFF;
+  border: 1px solid #007BFF;
+  padding: 6px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.suscribirse-btn:hover {
+  background-color: #007BFF;
+  color: #ffffff;
+}
+
+.check {
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.w-15 {
+  width: 10.5rem;
+}
+
+.image-container {
+  position: absolute;
+  left: 0px;
+  top: 90px;
+}
+
+.image-container2 {
+  position: absolute;
+  left: 1200px;
+  top: 90px;
+}
+
+#modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#texto{
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Estilo del modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+h2 {
+  color: #000000;
+}
+
+p {
+  color: #333;
+}
+
+button {
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.modal.active {
+  animation: modalFadeIn 0.3s ease-in-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+      opacity: 0;
   }
-  
-  
-  .custom-table {
-    width: 30%;
-    margin-top: 20px;
-    margin: 30px;
-    margin-bottom: 20px;
-    overflow: hidden; 
-    border-collapse: separate; 
-    border-spacing: 0;
-    border-radius: 10px;
+  to {
+      opacity: 1;
   }
-  
-  .custom-table th, .custom-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    color: #ddd;
-  }
-  
-  .custom-table thead th {
-    border-bottom: 2px solid #ddd;
-  }
-  
-  .custom-table thead th:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 0;
-  }
-  
-  .custom-table thead th:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 0;
-  }
-  
-  .custom-table tbody td:first-child {
-    border-bottom-left-radius: 10px;
-  }
-  
-  .custom-table tbody td:last-child {
-    border-bottom-right-radius: 10px;
-  }
-  
-  .mb-8 {
-    margin-bottom: 1.55rem;
-  }
-  
-  .mt-10 {
-    margin-top: 6.0rem;
-  }
-  
-  .mt-11 {
-    margin-top: 0.15rem;
-  }
-  
-  .suscribirse-btn {
-    background-color: #ffffff; 
-    color: #007BFF; 
-    border: 1px solid #007BFF;
-    padding: 6px 16px;
-    border-radius: 8px; 
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s; 
-  }
-  
-  .suscribirse-btn:hover {
-    background-color: #007BFF; 
-    color: #ffffff; 
-  }
-  
-  .check {
-    width: 16px;
-    height: 16px; 
-    margin-left: 10px;
-  }
-  
-  .flex-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .w-15 {
-    width: 10.5rem;
-  }
-  
-  .image-container {
-    position: absolute;
-    left: 0px; 
-    top: 90px; 
-  }
-  .image-container2 {
-    position: absolute;
-    left: 1200px; 
-    top: 90px; 
-  }
-  
+}

@@ -19,6 +19,7 @@ export class ServicioAnime {
     sessionStorage.setItem('nickname', json.nickname)
     sessionStorage.setItem('email', json.email)
     sessionStorage.setItem('imagen', json.imagen)
+    sessionStorage.setItem('suscrito', json.idSuscripcion)
     return json;
   }
 
@@ -46,6 +47,30 @@ export class ServicioAnime {
         "Content-Type": "application/json",
       },
     });
+    let json = await response.json();
+    return json;
+  }
+
+  async suscribirUser(usuario) {
+    usuario.idSuscripcion = '1'
+    let response = await fetch(this.#urlUsuarios + "suscripcion/" +`${sessionStorage.getItem('id')}`, {
+      method: "PUT",
+      body: JSON.stringify(usuario),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    let {user:json} = await response.json();
+    console.log(json)
+    sessionStorage.setItem('nickname', json.nickname)
+    sessionStorage.setItem('email', json.email)
+    sessionStorage.setItem('imagen', json.imagen)
+    sessionStorage.setItem('suscrito', json.idSuscripcion)
+    return json;
+  }
+
+  async obtenerUsuario(idUsuario){
+    let response = await fetch(this.#urlUsuarios + idUsuario, {});
     let json = await response.json();
     return json;
   }

@@ -33,6 +33,7 @@ export class AnimeBackground extends HTMLElement {
 
     const synopsisComponent = shadow.querySelector(".sinopsis-anime");
     const sinopsis = document.createElement('p');
+    sinopsis.className = 'justify-items-start mx-16'
     sinopsis.textContent = animeData.sinopsis;
     synopsisComponent.appendChild(sinopsis);
     shadow.appendChild(synopsisComponent);

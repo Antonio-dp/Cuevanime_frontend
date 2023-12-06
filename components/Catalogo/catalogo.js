@@ -33,7 +33,7 @@ export class Catalogo extends HTMLElement {
       divBueno.className = "w-full h-full blur-sm absolute opacity-30 bg-[#4338ca] top-0 left-0 "
       enlace.href = `/anime/${anime._id}`;
       enlace.className =
-        "inline-block shadow-md hover:shadow-xl";
+        "inline-block  relative shadow-md hover:shadow-xl";
 
       const contenidoDiv = document.createElement("div"); // Nuevo contenedor
       contenidoDiv.className = ("p-4 ")

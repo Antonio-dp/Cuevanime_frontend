@@ -59,7 +59,7 @@ export class Signup extends HTMLElement {
       return false
     }
 
-    const user = { 'nickname': nickname, 'password': password, 'email':email, 'imagen': 'icons/padorusage.jpg' }
+    const user = { 'nickname': nickname, 'password': password, 'email':email, 'imagen': 'icons/padorusage.jpg', 'idSuscripcion': '0' }
 
     console.log(user)
     try {

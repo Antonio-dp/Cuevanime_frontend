@@ -1,0 +1,8 @@
+.fotoPremium {
+    -webkit-box-shadow:0px 0px 35px 0px rgba(45,255,196,1);
+-moz-box-shadow: 0px 0px 35px 0px rgba(45,255,196,1);
+box-shadow: 0px 0px 35px 0px rgba(45,255,196,1);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+}

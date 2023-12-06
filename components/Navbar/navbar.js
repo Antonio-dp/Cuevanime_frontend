@@ -12,7 +12,9 @@ export class Navbar extends HTMLElement {
       const html = await response.text();
       shadow.innerHTML += html;
       this.#cargarImagen(shadow)
+      this.#usuarioPremium()
       this.#addMenuBehavior(shadow);
+      
     } catch (error) {
       console.error("Error loading HTML:", error);
     }
@@ -36,6 +38,12 @@ export class Navbar extends HTMLElement {
     div_buscar.style.display = 'none'
     div_search.style.display = 'none'
     div_menu.style.display = 'none'
+  }
+
+  #usuarioPremium(){
+    if(sessionStorage.getItem('suscrito')==="1"){
+      this.actualizarFotoPremium()
+    }
   }
 
   navNormal(){
@@ -104,6 +112,12 @@ export class Navbar extends HTMLElement {
         this.#mostrarResultados(filteredResults);
       }
     });
+  }
+
+  actualizarFotoPremium(){
+    const fotoPerfil = this.shadowRoot.getElementById('userImage');
+    fotoPerfil.className = 'fotoPremium'
+    console.log(fotoPerfil.className)
   }
 
   #mostrarResultados(results) {

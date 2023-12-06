@@ -14,6 +14,7 @@ import "../components/Login/Login.js"
 import "../components/Signup/Signup.js"
 import "../components/Season/seasonselector.js";
 import "../components/Perfil/perfil.js"
+import "../components/PlanPago/planpago.js"
 import page from "page";
 page("/", async () => {
   const response = await fetch("/pages/Home.html");
@@ -48,6 +49,16 @@ page("/catalogo", async () => {
 page("/anime/:id", async () => {
   try {
     const response = await fetch("/pages/MediaContent.html");
+    const html = await response.text();
+    document.getElementById("main").innerHTML = html;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+page("/suscripcion", async () => {
+  try {
+    const response = await fetch("/pages/Suscripcion.html");
     const html = await response.text();
     document.getElementById("main").innerHTML = html;
   } catch (error) {

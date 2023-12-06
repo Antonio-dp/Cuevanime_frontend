@@ -1,4 +1,4 @@
-  .image{
+  .image {
     margin: 0 auto;
     width: 100px;
     height: 100px;
@@ -10,4 +10,51 @@
     margin-top: 100px;
     margin-right: 57px;
     margin-left: 57px;
+  }
+
+
+  .toastBox {
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  .toast {
+    width: 400px;
+    height: 80px;
+    background: #fff;
+    font-weight: 500;
+    margin: 15px 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .toast i {
+    margin: 0 20px;
+    font-size: 35px;
+    color: green;
+  }
+
+  .toast::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background: green;
+    animation: anim 4s linear forwards;
+  }
+
+  @keyframes anim {
+    100% {
+      width: 0;
+    }
   }

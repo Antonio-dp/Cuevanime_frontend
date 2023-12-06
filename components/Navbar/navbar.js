@@ -27,6 +27,12 @@ export class Navbar extends HTMLElement {
     const div_buscar = this.shadowRoot.getElementById('divBusqueda')
     const div_search = this.shadowRoot.getElementById('searchInput')
     const div_menu = this.shadowRoot.getElementById('divMenu')
+    const generos = this.shadowRoot.getElementById('generosDropdown')
+    const logo = this.shadowRoot.getElementById('logo')
+    const signo = this.shadowRoot.getElementById('menuToggle')
+    generos.href = ""
+    logo.href = ""
+    signo.href = ""
     div_buscar.style.display = 'none'
     div_search.style.display = 'none'
     div_menu.style.display = 'none'
@@ -36,6 +42,12 @@ export class Navbar extends HTMLElement {
     const div_buscar = this.shadowRoot.getElementById('divBusqueda')
     const div_search = this.shadowRoot.getElementById('searchInput')
     const div_menu = this.shadowRoot.getElementById('divMenu')
+    const generos = this.shadowRoot.getElementById('generosDropdown')
+    const logo = this.shadowRoot.getElementById('logo')
+    const signo = this.shadowRoot.getElementById('menuToggle')
+    generos.href = "/catalogo"
+    logo.href = "/"
+    signo.href = ""
     div_buscar.style.display = 'block'
     div_search.style.display = 'block'
     div_menu.style.display = 'block'

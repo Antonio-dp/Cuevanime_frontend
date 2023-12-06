@@ -17,6 +17,7 @@ export class ServicioAnime {
     console.log(json);
     sessionStorage.setItem('id', json._id)
     sessionStorage.setItem('nickname', json.nickname)
+    sessionStorage.setItem('email', json.email)
     sessionStorage.setItem('imagen', json.imagen)
     return json;
   }
@@ -32,6 +33,7 @@ export class ServicioAnime {
     let {user:json} = await response.json();
     console.log(json)
     sessionStorage.setItem('nickname', json.nickname)
+    sessionStorage.setItem('email', json.email)
     sessionStorage.setItem('imagen', json.imagen)
     return json;
   }

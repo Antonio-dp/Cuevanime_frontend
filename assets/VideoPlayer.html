@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../tailwind.css" />
-<div class="w-128 h-96 lg:w-720 lg:h-540 mx-auto relative">
+<div class="w-128 h-96 lg:w-720 lg:h-540 lg:mx-60 mx-10 lg:my-4 my-2  relative">
   <!-- Cambia el ID del video de YouTube según tus necesidades -->
   <iframe
     id="videoIframe"
@@ -10,9 +10,8 @@
     style="border: 0"
     src=""
   ></iframe>
-  <div
-    class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4"
-  >
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 flex space-x-4 my-2">
     <button id="btnServer1" class="bg-gray-700 text-white px-4 py-2 rounded">
       Servidor 1
     </button>
@@ -20,8 +19,7 @@
       Servidor 2
     </button>
   </div>
-</div>
-<div class="text-white">
-  <h2 id="titulo"></h2>
-  <p id="descripcion"></p>
+<div class="text-white my-20">
+  <h2 id="titulo" class="font-sans text-2xl mx-60 subpixel-antialiased font-bold"></h2>
+  <p id="descripcion" class="font-sans mx-60 mt-2 subpixel-antialiased"></p>
 </div>

@@ -1,4 +1,5 @@
 import { list } from "postcss";
+
 import { ServicioAnime } from "../../Servicio/ServicioAnime.js";
 import page from "page";
 export class Catalogo extends HTMLElement {
@@ -26,14 +27,24 @@ export class Catalogo extends HTMLElement {
     container.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevos animes
     listaDeAnimes.forEach((anime) => {
       const card = document.createElement("div");
-      card.className = "p-0"; // Reducido el padding
+      card.className = "p-0 border-solid relative"; // Reducido el padding
       const enlace = document.createElement("a");
+      const divBueno = document.createElement("div");
+      divBueno.className = "w-full h-full blur-sm absolute opacity-30 bg-[#4338ca] top-0 left-0 "
       enlace.href = `/anime/${anime._id}`;
       enlace.className =
         "inline-block shadow-md hover:shadow-xl overflow-hidden";
 
       const contenidoDiv = document.createElement("div"); // Nuevo contenedor
-      contenidoDiv.className = "p-4";
+      contenidoDiv.className = ("p-4 ")
+      contenidoDiv.style.height ="20.5rem"
+      contenidoDiv.style.boxShadow = "0 25px 50px -12px rgb(0 0 0 / 0.25)"
+      contenidoDiv.style.border = "4px"
+      contenidoDiv.style.borderRadius = "5px"
+      //contenidoDiv.style.backgroundColor ="rgba(176, 28, 255,0.2)"
+      contenidoDiv.style.backdropFilter = "blur(100px)"
+
+
 
       const imagenDiv = document.createElement("div");
       const imagen = document.createElement("img");
@@ -55,6 +66,7 @@ export class Catalogo extends HTMLElement {
       });
 
       // Construir la estructura de la card
+      card.appendChild(divBueno)
       contenidoDiv.appendChild(imagenDiv);
       contenidoDiv.appendChild(nombreDiv);
       enlace.appendChild(contenidoDiv);

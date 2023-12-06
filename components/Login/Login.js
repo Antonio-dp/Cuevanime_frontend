@@ -31,7 +31,7 @@ export class Login extends HTMLElement {
         }
   }
 
-  navNormal(){
+  navNorma(){
     const navbar = document.querySelector('navbar-comp')
         if(navbar){
           navbar.navNormal()
@@ -48,7 +48,7 @@ export class Login extends HTMLElement {
 
       if (!login.message) {
         window.location.href = '/'
-        navNormal()
+        this.navNorma()
       } else {
         this.showToast(shadow)
       }

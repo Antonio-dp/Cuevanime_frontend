@@ -6,7 +6,6 @@ export class Perfil extends HTMLElement {
   constructor() {
     super();
     this.#fotoPerfil = sessionStorage.getItem('imagen')
-    console.log(this.#fotoPerfil)
     // const shadow = this.attachShadow({ mode: 'open' })
     // shadow.appendChild(template.content.cloneNode(true))
   }
@@ -72,12 +71,9 @@ export class Perfil extends HTMLElement {
       const passwordInput = shadow.getElementById('password').value;
       const password2Input = shadow.getElementById('password2').value;
       const imagen = this.#fotoPerfil
-      console.log(imagen)
-
-      if (passwordInput !== password2Input) {
-        alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
-      } else if (passwordInput === password2Input && passwordInput != "" || usernameInput != "") {
-
+      if(!this.#validarContraseña(passwordInput, password2Input)){
+        return
+      } else {
         const user = {
           "id": sessionStorage.getItem('id'),
           "email": emailInput,
@@ -140,8 +136,8 @@ export class Perfil extends HTMLElement {
       const usernameReset = shadow.getElementById('username');
       const passwordReset = shadow.getElementById('password');
       const password2Reset = shadow.getElementById('password2');
-      emailReset.value = ""
-      usernameReset.value = ""
+      emailReset.value = sessionStorage.getItem('email');
+      usernameReset.value = sessionStorage.getItem('nickname')
       passwordReset.value = ""
       password2Reset.value = ""
       usernameReset.placeholder = 'Username'
@@ -163,6 +159,15 @@ export class Perfil extends HTMLElement {
     });
   }
 
+  #validarContraseña(password1, password2){
+    if(password1==''|| password2=='' || password1!=password2){
+      this.showToast("Las contraseñas no coinciden")
+      return false
+    } else{
+      return true
+    }
+  }
+
   #editarImagen(shadow) {
     const contenedorBotones = shadow.getElementById('contenedorBotones');
     const buttons = contenedorBotones.querySelectorAll('.flex');
@@ -170,13 +175,26 @@ export class Perfil extends HTMLElement {
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
         const url = button.querySelector('img').src;
-        const nuevaUrl = url.replace('http://localhost:5173/', '');
+        const nuevaUrl = url.replace('http://localhost:5173', '');
         this.#fotoPerfil = nuevaUrl
         imagenPerfil.src = this.#fotoPerfil;
         console.log(this.#fotoPerfil)
         sessionStorage.getItem("id")
       });
     });
+  }
+
+  showToast(mensaje ) {
+    const toastBox = this.shadowRoot.querySelector('#toastBox')
+    let toast = document.createElement('div')
+    toast.classList.add('toast')
+    const msg = '<i class="fa-solid fa-circle-exclamation"></i>  '+mensaje
+    toast.innerHTML = msg
+    toastBox.appendChild(toast)
+
+    setTimeout(()=>{
+      toast.remove()
+    },4000)
   }
 
 }
